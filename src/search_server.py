@@ -107,7 +107,7 @@ class SearchActionServer():
             f"#####\n")
 
         # Get the robot's current odometry from the Tb3Odometry() class:
-        self.posx0 = self.tb3_odom.
+        self.posx0 = self.tb3_odom.posx
         self.posy0 = self.tb3_odom.posy
         # Get information about objects up ahead from the Tb3LaserScan() class:
         self.closest_object = self.tb3_lidar.min_distance
