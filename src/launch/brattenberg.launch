@@ -1,0 +1,17 @@
+<launch>
+  <!-- Map file for SLAM -->
+  <arg name="map_file" default="explore_map"/>
+
+  <!-- Launch main node to start brattenberg type of explore -->
+  <node pkg="acs6121_team15" type="bratten_search.py" name="bratten_search" output="screen"></node>
+  
+ <!-- Launch simulation environment node -->  
+  <include file="$(find acs6121)/launch/arena.launch" />
+
+  <!-- Launch turtlebot3_slam node -->
+  <include file="$(find turtlebot3_slam)/launch/turtlebot3_slam.launch" />
+
+  <!-- Map saver -->
+  <node pkg="map_server" type="map_saver" name="map_saver" output="screen" args="-f $(arg map_file)" />
+
+  </launch>
