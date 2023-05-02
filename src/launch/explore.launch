@@ -1,7 +1,7 @@
 <launch>
   <arg name="map_file" default="explore_map"/>
 
-  <node pkg="acs6121_team18" type="controller.py" name="explorer" output="screen">
+  <node pkg="acs6121_team15" type="controller.py" name="explorer" output="screen">
   </node>
   <include file="$(find acs6121)/launch/arena.launch" />
 
