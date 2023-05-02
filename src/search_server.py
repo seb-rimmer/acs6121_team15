@@ -113,7 +113,10 @@ class SearchActionServer():
         self.closest_object = self.tb3_lidar.min_distance
         self.closest_object_location = self.tb3_lidar.closest_object_position
 
-        self.vel_controller.set_move_cmd(vel, 0)
+        fwd_velocity = vel
+        ang_velocity = brattenberg_function(self.tb3_lidar.min_distance)
+
+        self.vel_controller.set_move_cmd(fwd_velocity, ang_velocity)
 
         while  self.tb3_lidar.min_distance > dist:
             
@@ -160,6 +163,10 @@ class SearchActionServer():
             rospy.loginfo("Search action completed successfully.")
             self.actionserver.set_succeeded(self.result)
             self.vel_controller.stop()
+
+        def brattenberg_function(distances):
+
+            return ang_velocity
 
 if __name__ == '__main__':
     rospy.init_node("search_action_server")
