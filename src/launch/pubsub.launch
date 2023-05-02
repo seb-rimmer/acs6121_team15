@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="acs6126_team15" type="search_main" name="search_main.py" output="Main search algorithm">
+  </node>
+  <!-- <node pkg="acs6126_team15" type="background_slam.py" name="SLAM node to run in background" output="screen"></node> -->
+  </launch>
